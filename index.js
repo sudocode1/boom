@@ -43,10 +43,14 @@ function check(toCheck) {
             return "no max number set";
         }
 
+        else if (split[1] === "array") {
+            return split.slice(2)[Math.floor(Math.random() * split.slice(2).length)];
+        }   
+
         else return Math.floor(Math.random() * parseInt(split[1]));
     }
 
-    else return "invalid";
+    else return "INVALID";
 }
 
 console.log(toInt.map(x => check(x)).join(' '));
