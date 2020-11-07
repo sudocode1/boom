@@ -5,10 +5,10 @@ let variables = {
 
 };
         
-function check(toCheck) {
+function check(toCheck, spl) {
     if (toCheck.startsWith("++")) {
         let math = toCheck.replace("++", "");
-        let splitmath = math.split("?");
+        let splitmath = math.split(spl);
 
         let toMath1 = parseFloat(splitmath[0]);
         let toMath2 = parseFloat(splitmath[2]);
@@ -24,54 +24,63 @@ function check(toCheck) {
     }
 
     else if (toCheck.startsWith("var")) {
-        let list = toCheck.split("?");
+        let list = toCheck.split(spl);
         variables[list[1]] = list.slice(2).join(" ");
     }
 
     else if (toCheck.startsWith("show")) {
-        let split = toCheck.split("?");
+        let split = toCheck.split(spl);
         return variables[split[1]];
     }
 
     else if (toCheck.startsWith("edit")) {
-        let split = toCheck.split("?");
+        let split = toCheck.split(spl);
         variables[split[1]] = split.slice("2").join(" ");
     }
 
     else if (toCheck.startsWith("if")) {
-        let split = toCheck.split("?");
+        let split = toCheck.split(spl);
 
-        if (split[2] === "=") {
-            if (variables[split[1]] === split[3]) return true;
-            else return false;
+        if(split[2] === "=") {
+            if (variables[split[1]] === split[3]) {
+                let thing = split[4];
+                let as = thing.split("/");
+
+                return as.map(x => check(x, "@")).join(' ');
+            }
         }
 
-        else if (split[2] === "!=") {
-            if (variables[split[1]] !== split[3]) return true;
-            else return false;
-        }
+        // if (split[2] === "=") {
+        //     if (variables[split[1]] === split[3]) return true;
+        //     else return false;
+        // }
 
-        else if(split[2] === ">") {
-            if (parseFloat(variables[split[1]]) > parseFloat(split[3])) return true;
-            else return false;
-        }
+        // else if (split[2] === "!=") {
+        //     if (variables[split[1]] !== split[3]) return true;
+        //     else return false;
+        // }
 
-        else if(split[2] === "<") {
-            if (parseFloat(variables[split[1]]) < parseFloat(split[3])) return true;
-            else return false;
-        }
+        // else if(split[2] === ">") {
+        //     if (parseFloat(variables[split[1]]) > parseFloat(split[3])) return true;
+        //     else return false;
+        // }
 
-        else if(split[2] === ">=") {
-            if (parseFloat(variables[split[1]]) >= parseFloat(split[3])) return true;
-            else return false; 
-        }
+        // else if(split[2] === "<") {
+        //     if (parseFloat(variables[split[1]]) < parseFloat(split[3])) return true;
+        //     else return false;
+        // }
 
-        else if(split[2] === "<=") {
-            if (parseFloat(variables[split[1]]) <= parseFloat(split[3])) return true;
-            return false;
-        }
+        // else if(split[2] === ">=") {
+        //     if (parseFloat(variables[split[1]]) >= parseFloat(split[3])) return true;
+        //     else return false; 
+        // }
 
-        else return "NULL";
+        // else if(split[2] === "<=") {
+        //     if (parseFloat(variables[split[1]]) <= parseFloat(split[3])) return true;
+        //     return false;
+        // }
+
+        // else return "NULL";
     }
 
     else if (toCheck.startsWith("+")) {
@@ -81,7 +90,7 @@ function check(toCheck) {
     else if (toCheck.startsWith("n")) return "\n";
 
     else if(toCheck.startsWith("date")) {
-        let split = toCheck.split("?");
+        let split = toCheck.split(spl);
 
         if(split[1] === "year") return new Date().getFullYear();
         else if(split[1] === "month") return new Date().getMonth();
@@ -91,7 +100,7 @@ function check(toCheck) {
     }
     
     else if(toCheck.startsWith("rng")) {
-        let split = toCheck.split("?");
+        let split = toCheck.split(spl);
 
         if (!split[1]) {
             return "no max number set";
@@ -107,4 +116,4 @@ function check(toCheck) {
     else return "INVALID";
 }
 
-console.log(toInt.map(x => check(x)).join(' '));
+console.log(toInt.map(x => check(x, "?")).join(' '));
