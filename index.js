@@ -1,6 +1,9 @@
 const fs = require("fs");
 const file = fs.readFileSync(`index.boom`).toString();
 let toInt = file.split("|");
+let variables = {
+
+};
         
 function check(toCheck) {
     if (toCheck.startsWith("++")) {
@@ -18,6 +21,16 @@ function check(toCheck) {
         else return "not recognised " + splitmath;
         
         
+    }
+
+    else if (toCheck.startsWith("var")) {
+        let list = toCheck.split("?");
+        variables[list[1]] = list.slice(2).join(" ");
+    }
+
+    else if (toCheck.startsWith("show")) {
+        let split = toCheck.split("?");
+        return variables[split[1]];
     }
 
     else if (toCheck.startsWith("+")) {
