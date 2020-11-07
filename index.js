@@ -33,6 +33,11 @@ function check(toCheck) {
         return variables[split[1]];
     }
 
+    else if (toCheck.startsWith("edit")) {
+        let split = toCheck.split("?");
+        variables[split[1]] = split.slice("2").join(" ");
+    }
+
     else if (toCheck.startsWith("+")) {
         return toCheck.replace("+", "");
     }
