@@ -40,47 +40,38 @@ function check(toCheck, spl) {
 
     else if (toCheck.startsWith("if")) {
         let split = toCheck.split(spl);
+        let send;
 
         if(split[2] === "=") {
             if (variables[split[1]] === split[3]) {
-                let thing = split[4];
-                let as = thing.split("/");
+                let toRun = split[4];
+                let as = toRun.split("/");
 
                 return as.map(x => check(x, "@")).join(' ');
             }
         }
 
-        // if (split[2] === "=") {
-        //     if (variables[split[1]] === split[3]) return true;
-        //     else return false;
-        // }
+        if (split[5]) {
+            if (split[5].startsWith("otherwise")) {
+                if (split[5] === "otherwise if") {
+                    if (split[7] === "=") {
+                        if(variables[split[6]] === split[8]) {
+                            let toRun = split[9];
+                            let as = toRun.split("/");
+    
+                            return as.map(x => check(x, "@")).join(" ");
+                        }
+                    }
+                }
+            }
+        }
 
-        // else if (split[2] === "!=") {
-        //     if (variables[split[1]] !== split[3]) return true;
-        //     else return false;
-        // }
+        // const otherwiseI = split.findIndex((x, i) => x.startsWith('otherwise') && i >= 5);
+        // if (otherwiseI > -1) {
+        //     if (split[5 + otherwiseI] === "otherwise if") {
 
-        // else if(split[2] === ">") {
-        //     if (parseFloat(variables[split[1]]) > parseFloat(split[3])) return true;
-        //     else return false;
+        //     }
         // }
-
-        // else if(split[2] === "<") {
-        //     if (parseFloat(variables[split[1]]) < parseFloat(split[3])) return true;
-        //     else return false;
-        // }
-
-        // else if(split[2] === ">=") {
-        //     if (parseFloat(variables[split[1]]) >= parseFloat(split[3])) return true;
-        //     else return false; 
-        // }
-
-        // else if(split[2] === "<=") {
-        //     if (parseFloat(variables[split[1]]) <= parseFloat(split[3])) return true;
-        //     return false;
-        // }
-
-        // else return "NULL";
     }
 
     else if (toCheck.startsWith("+")) {
