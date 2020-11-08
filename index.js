@@ -82,10 +82,10 @@ function check(toCheck, spl) {
         
         while (amountrun !== runtime)  {
             let toRun = split[1];
-            let as = toRun.split("/");
+            let as = toRun.split("#");
 
             amountrun = amountrun + 1;
-            stringBack += as.map(x => check(x, "@")).join(" ") + " ";
+            stringBack += as.map(x => check(x, "&")).join(" ") + " ";
         }
         
         return stringBack;
