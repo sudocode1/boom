@@ -74,6 +74,23 @@ function check(toCheck, spl) {
         // }
     }
 
+    else if(toCheck.startsWith("loop")) {
+        let split = toCheck.split(spl);
+        let amountrun = 0;
+        let runtime = parseInt(split[2]);
+        let stringBack = "";
+        
+        while (amountrun !== runtime)  {
+            let toRun = split[1];
+            let as = toRun.split("/");
+
+            amountrun = amountrun + 1;
+            stringBack += as.map(x => check(x, "@")).join(" ") + " ";
+        }
+        
+        return stringBack;
+    }
+
     else if (toCheck.startsWith("+")) {
         return toCheck.replace("+", "");
     }
