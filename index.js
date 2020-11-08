@@ -14,6 +14,17 @@ function check(toCheck, spl) {
         let toMath2 = parseFloat(splitmath[2]);
         let calculation = splitmath[1];
 
+
+        if (isNaN(toMath1)) {
+            if (!variables.hasOwnProperty(splitmath[0])) return "INVALID VARIABLE";
+            toMath1 = parseFloat(variables[splitmath[0]]);
+        }
+
+        if (isNaN(toMath2)) {
+            if (!variables.hasOwnProperty(splitmath[2])) return "INVALID VARIABLE";
+            toMath2 = parseFloat(variables[splitmath[2]]);
+        }
+
         if (calculation === "+") return toMath1 + toMath2;
         else if (calculation === "-") return toMath1 - toMath2;
         else if (calculation === "*") return toMath1 * toMath2;
