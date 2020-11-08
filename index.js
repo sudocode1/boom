@@ -36,7 +36,15 @@ function check(toCheck, spl) {
 
     else if (toCheck.startsWith("var")) {
         let list = toCheck.split(spl);
-        variables[list[1]] = list.slice(2).join(" ");
+
+        if (list[2] === "function") {
+            let toRun = list[3];
+            let as = toRun.split(">");
+
+            variables[list[1]] = as.map(x => check(x, "$")).join(" ");
+        }
+
+        else variables[list[1]] = list.slice(2).join(" ");
     }
 
     else if (toCheck.startsWith("show")) {
@@ -45,8 +53,16 @@ function check(toCheck, spl) {
     }
 
     else if (toCheck.startsWith("edit")) {
-        let split = toCheck.split(spl);
-        variables[split[1]] = split.slice("2").join(" ");
+        let list = toCheck.split(spl);
+
+        if (list[2] === "function") {
+            let toRun = list[3];
+            let as = toRun.split(">");
+
+            variables[list[1]] = as.map(x => check(x, "$")).join(" ");
+        }
+
+        else variables[list[1]] = list.slice(2).join(" ");
     }
 
     else if (toCheck.startsWith("if")) {
