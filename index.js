@@ -37,7 +37,14 @@ function check(toCheck, spl) {
     else if (toCheck.startsWith("var")) {
         let list = toCheck.split(spl);
 
-        if (list[2] === "function") {
+        if (list[3] === "boolean") {
+            if (list[2] === "true") variables[list[1]] = true;
+            else if (list[2] === "false") variables[list[1]] = false;
+            else variables[list[1]] = null;
+        }
+
+
+        else if (list[2] === "function") {
             let toRun = list[3];
             let as = toRun.split(">");
 
@@ -45,6 +52,11 @@ function check(toCheck, spl) {
         }
 
         else variables[list[1]] = list.slice(2).join(" ");
+    }
+
+    else if (toCheck.startsWith("type")) {
+        let split = toCheck.split(spl);
+        return typeof(variables[split[1]]);
     }
 
     else if (toCheck.startsWith("show")) {
@@ -147,6 +159,10 @@ function check(toCheck, spl) {
 
         else return Math.floor(Math.random() * parseInt(split[1]));
     }
+
+
+
+
 
     else return "INVALID";
 }
