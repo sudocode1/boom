@@ -205,6 +205,14 @@ function check(toCheck, spl) {
         else return Math.floor(Math.random() * parseInt(split[1]));
     }
 
+    else if(toCheck.startsWith("run")) {
+        let split = toCheck.split(spl);
+        let f = fs.readFileSync(`${split[1]}.boom`).toString();
+        let i = f.split("|");
+
+        return i.map(x => check(x, "?")).join(" ");
+    }
+
 
 
 
