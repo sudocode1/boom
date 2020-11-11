@@ -128,6 +128,24 @@ function check(toCheck, spl) {
         
     }
 
+    else if (split[2] === ">") {
+        if (variables[split[1]] > split[3]) {
+            let toRun = split[4];
+            let as = toRun.split("/");
+
+            return as.map(x => check(x, "@")).join(" ");
+        }
+    }
+
+    else if (split[2] === "<") {
+        if (variables[split[1]] < split[3]) {
+            let toRun = split[4];
+            let as = toRun.split("/");
+
+            return as.map(x => check(x, "@")).join(" ");
+        }
+    }
+
 
 
         // const otherwiseI = split.findIndex((x, i) => x.startsWith('otherwise') && i >= 5);
