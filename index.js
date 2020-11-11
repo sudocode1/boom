@@ -97,7 +97,7 @@ function check(toCheck, spl) {
                 let as = toRun.split("/");
 
                 return as.map(x => check(x, "@")).join(' ');
-            }
+
         }
 
         if (split[5]) {
@@ -107,13 +107,28 @@ function check(toCheck, spl) {
                         if(variables[split[6]] === split[8]) {
                             let toRun = split[9];
                             let as = toRun.split("/");
-    
+        
                             return as.map(x => check(x, "@")).join(" ");
                         }
                     }
                 }
             }
         }
+    }
+
+    else if (split[2] === "!=") {
+
+        if (variables[split[1]] !== split[3]) {
+            let toRun = split[4];
+            let as = toRun.split("/");
+
+            return as.map(x => check(x, "@")).join(" ");
+        }
+
+        
+    }
+
+
 
         // const otherwiseI = split.findIndex((x, i) => x.startsWith('otherwise') && i >= 5);
         // if (otherwiseI > -1) {
