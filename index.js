@@ -128,6 +128,8 @@ function check(toCheck, spl) {
         let amountrun = 0;
         let runtime = parseInt(split[2]);
         let stringBack = "";
+
+        if (isNaN(runtime)) runtime = parseInt(variables[split[2]]);
         
         while (amountrun !== runtime)  {
             let toRun = split[1];
