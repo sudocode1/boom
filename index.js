@@ -43,6 +43,16 @@ function check(toCheck, spl) {
             else variables[list[1]] = null;
         }
 
+        else if (list[3] === "integer" || list[3] === "int") {
+            if (isNaN(parseInt(list[2]))) variables[list[1]] = null;
+            else variables[list[1]] = parseInt(list[2]);
+        }
+
+        else if (list[3] === "float") {
+            if (isNaN(parseFloat(list[2]))) variables[list[1]] = null;
+            else variables[list[1]] = parseFloat(list[2]);
+        }
+
 
         else if (list[2] === "function") {
             let toRun = list[3];
