@@ -215,6 +215,25 @@ function check(toCheck, spl) {
 
 
 
+    else if (toCheck.startsWith("while")) {
+        let split = toCheck.split(spl);
+        let stringBack = "";
+
+
+        if(split[2] === "=") {
+            while (variables[split[1]] === split[3]) {
+                let toRun = split[4];
+                let as = toRun.split("%");
+                stringBack += as.map(x => check(x, ":")).join(" ") + " ";
+
+        }
+
+        return stringBack;
+
+        
+    }
+
+    }
 
 
     else return "INVALID";
