@@ -111,6 +111,36 @@ function check(toCheck, spl) {
                             return as.map(x => check(x, "@")).join(" ");
                         }
                     }
+
+                    else if (split[7] === "!=") {
+
+                        if (variables[split[6]] !== split[8]) {
+                            let toRun = split[9];
+                            let as = toRun.split("/");
+                
+                            return as.map(x => check(x, "@")).join(" ");
+                        }
+                
+                        
+                    }
+                
+                    else if (split[7] === ">") {
+                        if (variables[split[6]] > split[8]) {
+                            let toRun = split[9];
+                            let as = toRun.split("/");
+                
+                            return as.map(x => check(x, "@")).join(" ");
+                        }
+                    }
+                
+                    else if (split[7] === "<") {
+                        if (variables[split[6]] < split[8]) {
+                            let toRun = split[9];
+                            let as = toRun.split("/");
+                
+                            return as.map(x => check(x, "@")).join(" ");
+                        }
+                    }
                 }
             }
         }
@@ -226,11 +256,19 @@ function check(toCheck, spl) {
                 let as = toRun.split("%");
                 stringBack += as.map(x => check(x, ":")).join(" ") + " ";
 
-        }
-
+        } 
         return stringBack;
 
-        
+    } else if (split[2] === "!=") {
+
+            while (variables[split[1]] !== split[3]) {
+                let toRun = split[4];
+                let as = toRun.split("%");
+                stringBack += as.map(x => check(x, ":")).join(" ") + " ";
+
+        } 
+
+        return stringBack;
     }
 
     }
