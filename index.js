@@ -101,7 +101,6 @@ function check(toCheck, spl) {
         }
 
         if (split[5]) {
-            if (split[5].startsWith("otherwise")) {
                 if (split[5] === "otherwise if") {
                     if (split[7] === "=") {
                         if(variables[split[6]] === split[8]) {
@@ -142,8 +141,15 @@ function check(toCheck, spl) {
                         }
                     }
                 }
+
+                if (split[10] && split[10] === "otherwise") {
+                    let toRun = split[11];
+                    let as = toRun.split("/");
+
+                    return as.map(x => check(x, "@")).join(" ");
+                }
+            
             }
-        }
     }
 
     else if (split[2] === "!=") {
