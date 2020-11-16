@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h6, p, a {
+h1, h2, h3, h4, h5, h6, p, a, th, tr, td {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
@@ -9,4 +9,9 @@ body {
 
 code {
     font-size: 150%;
+}
+
+table, th, td {
+    border: 2px solid black;
+    font-size: large;
 }
