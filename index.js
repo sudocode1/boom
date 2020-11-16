@@ -279,6 +279,10 @@ function check(toCheck, spl) {
 
     }
 
+    else if (toCheck.startsWith("*") && toCheck.endsWith("*")) {
+        return;
+    }
+
 
     else return "INVALID";
 }
