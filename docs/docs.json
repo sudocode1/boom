@@ -1,0 +1,108 @@
+[
+    {
+        "name": "string",
+        "file": "+",
+        "expl": "string",
+        "code": ["+your string here"],
+        "desc": ["Return a string."]
+    },
+    {
+        "name": "math",
+        "file": "++",
+        "expl": "math",
+        "code": ["++number?operation?number", "++variable?operation?number"],
+        "desc": ["Returns a math calculation.", "Operations: +, -, *, /"]
+    },
+    {
+        "name": "newline",
+        "file": "n",
+        "expl": "newline",
+        "code": ["n"],
+        "desc": ["Newline"]
+    },
+    {
+        "name": "date",
+        "code": ["date?type"],
+        "desc": [
+            "date - Full Date.", "date?year - Current Year.",
+            "date?month - Current Month as number.",
+            "date?unix - Current unix timestamp.",
+            "date?json - Full Date as JSON."
+        ]
+    },
+    {
+        "name": "rng",
+        "expl": "random",
+        "code": ["rng?maxnumber", "rng?array?param?param?..."],
+        "desc": ["rng?maxnumber - Random number from 0 to maxnumber", "rng?array?argument1?argument2?argument3 - Select a random argument from the arguments provided"]
+    },
+    {
+        "name": "var",
+        "expl": "variable",
+        "code": [
+            "var?name?text * string *",
+            "var?name?num?int * integer *",
+            "var?name?num?float * float *",
+            "var?name?function?todo * function/code *"
+        ],
+        "desc": ["Declare a variable."]
+    },
+    {
+        "name": "edit",
+        "expl": "edit variable",
+        "code": [
+            "edit?name?text * string *",
+            "edit?name?num?int * integer *",
+            "edit?name?num?float * float *",
+            "edit?name?function?todo * function/code *"
+        ],
+        "desc": ["Edit a variable."]
+    },
+    {
+        "name": "show variable",
+        "file": "show",
+        "expl": "show variable",
+        "code": ["show?name"],
+        "desc": ["Shows a variable."]
+    },
+    {
+        "name": "show variable type",
+        "file": "type",
+        "expl": "show variable type",
+        "code": ["type?name"],
+        "desc": ["Shows the type of a variable. (string, number, boolean)"]
+    },
+    {
+        "name": "if",
+        "code": [
+            "if?variable?operation?value?todo?otherwise",
+            "if?variable?operation?value?todo?otherwise if?variable?operation?value?todo",
+            "if?variable?operation?value?todo?otherwise if?variable?operation?value?todo?otherwise?todo"
+        ],
+        "desc": ["Conditional statements.", "Operation: =, !=, >, <"]
+    },
+    {
+        "name": "loop",
+        "code": ["loop?todo?amount"],
+        "desc": ["Repeat something &lt;amount&gt; times."]
+    },
+    {
+        "name": "while",
+        "expl": "while loops",
+        "code": ["while?variable?operation?value?todo"],
+        "desc": ["Repeat something while the condition is true.", "Operation: =, !="]
+    },
+    {
+        "name": "run",
+        "expl": "run external file",
+        "code": ["run?filename"],
+        "desc": ["Run an external boom file."]
+    },
+    {
+        "name": "comment",
+        "file": "* content *",
+        "expl": "comment",
+        "code": ["* content *"],
+        "desc": ["This is content that will not be read as anything - not INVALID, nothing. This is helpful so you can explain your code or just add comments."]
+    }
+]
