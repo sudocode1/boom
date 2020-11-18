@@ -237,7 +237,11 @@ function check(toCheck, spl) {
 
         else if (split[1] === "array") {
             return split.slice(2)[Math.floor(Math.random() * split.slice(2).length)];
-        }   
+        }
+
+        else if (split[1] === "var") {
+            return Math.floor(Math.random() * parseInt(variables[split[2]]));
+        }
 
         else return Math.floor(Math.random() * parseInt(split[1]));
     }
