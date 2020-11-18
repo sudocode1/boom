@@ -54,12 +54,15 @@ function check(toCheck, spl) {
             else variables[list[1]] = parseFloat(list[2]);
         }
 
-
         else if (list[2] === "function") {
             let toRun = list[3];
             let as = toRun.split(">");
 
             variables[list[1]] = as.map(x => check(x, "$")).join(" ");
+        }
+
+        else if (list[2] === "array") {
+            variables[list[1]] = list.slice(3);
         }
 
         else variables[list[1]] = list.slice(2).join(" ");
