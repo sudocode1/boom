@@ -291,6 +291,17 @@ function check(toCheck, spl) {
         return;
     }
 
+    else if(toCheck.startsWith("case")) {
+        let split = toCheck.split(spl);
+        // case?type?var?change
+
+        if (split[1] === "upper" && split[3] === "change") variables[split[2]] = variables[split[2]].toUpperCase();
+        else if (split[1] === "lower" && split[3] === "change") variables[split[2]] = variables[split[2]].toLowerCase();
+        else if (split[1] === "lower") return variables[split[2]].toLowerCase();
+        else if (split[1] === "upper") return variables[split[2]].toUpperCase();
+        else return null;
+    }
+
 
     else return "INVALID";
 }
