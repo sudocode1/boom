@@ -29,6 +29,7 @@ function check(toCheck, spl) {
         else if (calculation === "-") return toMath1 - toMath2;
         else if (calculation === "*") return toMath1 * toMath2;
         else if (calculation === "/") return toMath1 / toMath2;
+        else if (calculation === "**") return toMath1 ** toMath2;
         else return "not recognised " + splitmath;
         
         
