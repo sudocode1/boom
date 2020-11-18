@@ -302,6 +302,19 @@ function check(toCheck, spl) {
         else return null;
     }
 
+    else if (toCheck.startsWith("replace")) {
+        let split = toCheck.split(spl);
+        // replace?var?char?char
+
+        if (!split[1] || !split[2]) return "ERROR: MISSING VARIABLES";
+        var joinas;
+
+        if (!split[3]) joinas = "";
+        else joinas = split[3];
+
+        variables[split[1]] = variables[split[1]].split(split[2]).join(joinas);
+    }
+
 
     else return "INVALID";
 }
