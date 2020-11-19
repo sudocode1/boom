@@ -339,6 +339,15 @@ function check(toCheck, spl) {
 
     }
 
+    else if (toCheck.startsWith("search")) {
+        let split = toCheck.split(spl);
+        // search?varname?character
+
+        if (!variables[split[1]]) return "ERROR: VARIABLE DOES NOT EXIST";
+        else if(!split[2]) return "ERROR: MISSING PARAMETER";
+        else return variables[split[1]].search(split[2]);
+    }
+
 
     else return "INVALID FUNCTION";
 }
