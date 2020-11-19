@@ -348,6 +348,31 @@ function check(toCheck, spl) {
         else return variables[split[1]].search(split[2]);
     }
 
+    else if (toCheck.startsWith("file")) {
+        let split = toCheck.split(spl);
+        // file?read?filename
+        // file?write?filename?data
+        // file?append?filename?data
+
+        let types = ["read", "write", "append"];
+        if (!types.includes(split[1])) return "ERROR: NOT A TYPE";
+
+        if (split[1] === types[0]) {
+            // read
+            return fs.readFileSync(`${split[2]}`);
+        }
+
+        else if (split[1] === types[1]) {
+            // write
+            fs.writeFileSync(`${split[2]}`, `${split[3]}`);
+        }
+
+        else if (split[1] === types[2]) {
+            // append
+            fs.appendFileSync(`${split[2]}`, `${split[3]}`);
+        }
+    }
+
 
     else return "INVALID FUNCTION";
 }
