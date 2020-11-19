@@ -1,7 +1,7 @@
-const { Console } = require("console");
 const fs = require("fs");
 const file = fs.readFileSync(`index.boom`).toString();
 let toInt = file.split("|");
+let e;
 
 let variables = {
 
@@ -18,12 +18,12 @@ function check(toCheck, spl) {
 
 
         if (isNaN(toMath1)) {
-            if (!variables.hasOwnProperty(splitmath[0])) return "INVALID VARIABLE";
+            if (!variables.hasOwnProperty(splitmath[0])) return e = "INVALID VARIABLE";
             toMath1 = parseFloat(variables[splitmath[0]]);
         }
 
         if (isNaN(toMath2)) {
-            if (!variables.hasOwnProperty(splitmath[2])) return "INVALID VARIABLE";
+            if (!variables.hasOwnProperty(splitmath[2])) return e = "INVALID VARIABLE";
             toMath2 = parseFloat(variables[splitmath[2]]);
         }
 
@@ -313,7 +313,7 @@ function check(toCheck, spl) {
         let split = toCheck.split(spl);
         // replace?var?char?char
 
-        if (!split[1] || !split[2]) return "ERROR: MISSING VARIABLES";
+        if (!split[1] || !split[2]) return e = "ERROR: MISSING VARIABLES";
         var joinas;
 
         if (!split[3]) joinas = "";
@@ -328,11 +328,11 @@ function check(toCheck, spl) {
         // split?var?name?param
 
         if (!split[1] || !split[2] || !split[3]) {
-            return "ERROR: MISSING ARGUMENTS";
+            return e = "ERROR: MISSING ARGUMENTS";
         }
 
         else if (!variables[split[2]]) {
-            return "ERROR: VARIABLE DOES NOT EXIST"
+            return e = "ERROR: VARIABLE DOES NOT EXIST"
         }
 
         else if (split[3] === "change") {
@@ -349,8 +349,8 @@ function check(toCheck, spl) {
         let split = toCheck.split(spl);
         // search?varname?character
 
-        if (!variables[split[1]]) return "ERROR: VARIABLE DOES NOT EXIST";
-        else if(!split[2]) return "ERROR: MISSING PARAMETER";
+        if (!variables[split[1]]) return e = "ERROR: VARIABLE DOES NOT EXIST";
+        else if(!split[2]) return e = "ERROR: MISSING PARAMETER";
         else return variables[split[1]].search(split[2]);
     }
 
@@ -361,7 +361,7 @@ function check(toCheck, spl) {
         // file?append?filename?data
 
         let types = ["read", "write", "append"];
-        if (!types.includes(split[1])) return "ERROR: NOT A TYPE";
+        if (!types.includes(split[1])) return e = "ERROR: NOT A TYPE";
 
         if (split[1] === types[0]) {
             // read
@@ -397,7 +397,9 @@ function check(toCheck, spl) {
     
 
 
-    else return "INVALID FUNCTION";
+    else return e = "INVALID FUNCTION";
 }
 
-console.log(toInt.map(x => check(x, "?")).join(' '));
+let returnback = toInt.map(x => check(x, "?")).join(" ");
+if (typeof e === "string") returnback = e;
+console.log(returnback);
