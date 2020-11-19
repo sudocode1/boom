@@ -382,6 +382,13 @@ function check(toCheck, spl) {
         variables[split[1]] = arr.sort();
     }
 
+    else if (toCheck.startsWith("json")) {
+        let split = toCheck.split(spl);
+        // json?file?object
+
+        return JSON.parse(fs.readFileSync(`${split[1]}`, `utf-8`))[split[2]];
+    }
+
 
     else return "INVALID FUNCTION";
 }
