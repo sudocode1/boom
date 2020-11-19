@@ -2,6 +2,7 @@ const { Console } = require("console");
 const fs = require("fs");
 const file = fs.readFileSync(`index.boom`).toString();
 let toInt = file.split("|");
+
 let variables = {
 
 };
@@ -371,6 +372,14 @@ function check(toCheck, spl) {
             // append
             fs.appendFileSync(`${split[2]}`, `${split[3]}`);
         }
+    }
+
+    else if (toCheck.startsWith("sort")) {
+        let split = toCheck.split(spl);
+        // sort?var
+
+        let arr = variables[split[1]];
+        variables[split[1]] = arr.sort();
     }
 
 
