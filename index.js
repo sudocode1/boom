@@ -1,3 +1,4 @@
+const { Console } = require("console");
 const fs = require("fs");
 const file = fs.readFileSync(`index.boom`).toString();
 let toInt = file.split("|");
@@ -315,8 +316,31 @@ function check(toCheck, spl) {
         variables[split[1]] = variables[split[1]].split(split[2]).join(joinas);
     }
 
+    else if (toCheck.startsWith("split")) {
+        let split = toCheck.split(spl);
+        // split?var?name?change?param
+        // split?var?name?param
 
-    else return "INVALID";
+        if (!split[1] || !split[2] || !split[3]) {
+            return "ERROR: MISSING ARGUMENTS";
+        }
+
+        else if (!variables[split[2]]) {
+            return "ERROR: VARIABLE DOES NOT EXIST"
+        }
+
+        else if (split[3] === "change") {
+            variables[split[2]] = variables[split[2]].split(split[4].toString());
+        }
+
+        else {
+            return variables[split[2]].split(split[3].toString());
+        }
+
+    }
+
+
+    else return "INVALID FUNCTION";
 }
 
 console.log(toInt.map(x => check(x, "?")).join(' '));
