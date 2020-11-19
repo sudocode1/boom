@@ -37,6 +37,11 @@ function check(toCheck, spl) {
         
     }
 
+    else if (toCheck.startsWith("sqrt")) {
+        let split = toCheck.split(spl);
+        return Math.sqrt(parseFloat(split[1]));
+    }
+
     else if (toCheck.startsWith("var")) {
         let list = toCheck.split(spl);
 
@@ -388,6 +393,8 @@ function check(toCheck, spl) {
 
         return JSON.parse(fs.readFileSync(`${split[1]}`, `utf-8`))[split[2]];
     }
+
+    
 
 
     else return "INVALID FUNCTION";
