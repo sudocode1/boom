@@ -105,5 +105,10 @@
         "expl": "comment",
         "code": ["* content *"],
         "desc": ["This is content that will not be read as anything - not INVALID, nothing. This is helpful so you can explain your code or just add comments."]
+    },
+    {
+        "name": "case",
+        "code": ["case?type?varname", "case?type?varname?change"],
+        "desc": ["To upper case and to lower case.", "If the change parameter is present - the variable wil be set to the case given."]
     }
 ]
