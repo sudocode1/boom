@@ -34,7 +34,7 @@
         "name": "rng",
         "expl": "random",
         "code": ["rng?maxnumber", "rng?array?param?param?...", "rng?var?varname"],
-        "desc": ["rng?maxnumber - Random number from 0 to maxnumber", "rng?array?argument1?argument2?argument3 - Select a random argument from the arguments provided"]
+        "desc": ["rng?maxnumber - Random number from 0 to maxnumber", "rng?array?argument1?argument2?argument3 - Select a random argument from the arguments provided", "rng?var?varname - Set a maxnumber based on the variable declared."]
     },
     {
         "name": "var",
