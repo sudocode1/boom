@@ -24,6 +24,8 @@ window.onload = async () => {
 <h2>
     This documentation is for Boom
     <code>v2.0</code>
+    <br>
+    <a href="splitting.html">Splitting Reference</a>
 </h2>
 <table align="right" style="width: 50%;">
     <tr style="background-color: black;">
