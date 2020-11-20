@@ -115,5 +115,13 @@
         "name": "replace",
         "code": ["replace?var?char?char"],
         "desc": ["Replace characters in a variable"]
+    },
+    {
+        "name": "split",
+        "code": ["split?var?name?change?param", "split?var?name?param"],
+        "desc": [
+            "Make a variable an array, split by param", 
+            "If the change parameter is present the variable will be changed to an array of the variable split by param"
+        ]
     }
 ]
