@@ -113,7 +113,7 @@ window.onload = async () => {
 
     <tr>
         <th>Case</th>
-        <th><img src="https://github.com/sudocode1/boom/blob/master/assets/no.png?raw=true" class="documented"></th>
+        <th><img src="https://github.com/sudocode1/boom/blob/master/assets/yes.png?raw=true" class="documented"></th>
     </tr>
 
     <tr>
@@ -153,7 +153,7 @@ window.onload = async () => {
 
     <tr style="background-color: black;">
         <th>Percentage Documented</th>
-        <th>66.66%</th>
+        <th>70.8%</th>
     </tr>
     
 </table>
