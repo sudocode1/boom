@@ -23,7 +23,7 @@ window.onload = async () => {
 </h1>
 <h2>
     This documentation is for Boom
-    <code>v1.1</code>
+    <code>v2.0</code>
 </h2>
 <table align="right" style="width: 50%;">
     <tr style="background-color: black;">
