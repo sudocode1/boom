@@ -111,10 +111,51 @@ window.onload = async () => {
         <th><img src="https://github.com/sudocode1/boom/blob/master/assets/yes.png?raw=true" class="documented"></th>
     </tr>
 
+    <tr>
+        <th>Case</th>
+        <th><img src="https://github.com/sudocode1/boom/blob/master/assets/no.png?raw=true" class="documented"></th>
+    </tr>
+
+    <tr>
+        <th>Replace</th>
+        <th><img src="https://github.com/sudocode1/boom/blob/master/assets/no.png?raw=true" class="documented"></th>
+    </tr>
+
+    <tr>
+        <th>Split</th>
+        <th><img src="https://github.com/sudocode1/boom/blob/master/assets/no.png?raw=true" class="documented"></th>
+    </tr>
+
+    <tr>
+        <th>Search</th>
+        <th><img src="https://github.com/sudocode1/boom/blob/master/assets/no.png?raw=true" class="documented"></th>
+    </tr>
+
+    <tr>
+        <th>File</th>
+        <th><img src="https://github.com/sudocode1/boom/blob/master/assets/no.png?raw=true" class="documented"></th>
+    </tr>
+
+    <tr>
+        <th>Sort</th>
+        <th><img src="https://github.com/sudocode1/boom/blob/master/assets/no.png?raw=true" class="documented"></th>
+    </tr>
+
+    <tr>
+        <th>JSON</th>
+        <th><img src="https://github.com/sudocode1/boom/blob/master/assets/no.png?raw=true" class="documented"></th>
+    </tr>
+
+    <tr>
+        <th>SQRT</th>
+        <th><img src="https://github.com/sudocode1/boom/blob/master/assets/no.png?raw=true" class="documented"></th>
+    </tr>
+
     <tr style="background-color: black;">
         <th>Percentage Documented</th>
-        <th>100%</th>
+        <th>66.66%</th>
     </tr>
+    
 </table>
 <h2>Full list of elements</h2>
 ${
