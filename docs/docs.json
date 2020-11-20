@@ -33,7 +33,7 @@
     {
         "name": "rng",
         "expl": "random",
-        "code": ["rng?maxnumber", "rng?array?param?param?..."],
+        "code": ["rng?maxnumber", "rng?array?param?param?...", "rng?var?varname"],
         "desc": ["rng?maxnumber - Random number from 0 to maxnumber", "rng?array?argument1?argument2?argument3 - Select a random argument from the arguments provided"]
     },
     {
@@ -43,7 +43,8 @@
             "var?name?text * string *",
             "var?name?num?int * integer *",
             "var?name?num?float * float *",
-            "var?name?function?todo * function/code *"
+            "var?name?function?todo * function/code *",
+            "var?name?array?param?param..."
         ],
         "desc": ["Declare a variable."]
     },
