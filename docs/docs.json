@@ -110,5 +110,10 @@
         "name": "case",
         "code": ["case?type?varname", "case?type?varname?change"],
         "desc": ["To upper case and to lower case.", "If the change parameter is present - the variable wil be set to the case given."]
+    },
+    {
+        "name": "replace",
+        "code": ["replace?var?char?char"],
+        "desc": ["Replace characters in a variable"]
     }
 ]
