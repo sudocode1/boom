@@ -394,6 +394,17 @@ function check(toCheck, spl) {
         return JSON.parse(fs.readFileSync(`${split[1]}`, `utf-8`))[split[2]];
     }
 
+    else if(toCheck.startsWith("hashlang")) {
+        let split = toCheck.split(spl);
+
+        var hash = JSON.parse(require("fs").readFileSync("./hash.json"));
+        var read = split[1];
+        var convert = read.split("#");
+        var converted = convert.map(x => hash[x]).join("");
+
+        return converted;
+    }
+
     
 
 
